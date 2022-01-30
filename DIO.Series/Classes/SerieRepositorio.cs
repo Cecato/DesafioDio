@@ -12,9 +12,9 @@ namespace DIO.Series
 			listaSerie[id] = objeto;
 		}
 
-		public void Exclui(int id)
+		public void Del(int id)
 		{
-			listaSerie[id].Excluir();
+			listaSerie[id].Delete();
 		}
 
 		public void Insere(Serie objeto)

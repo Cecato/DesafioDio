@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\DesafioDio\\DIO.Series\\DIO.Series.csproj",
+      "projectUniqueName": "D:\\workspace\\DesafioDio\\DesafioDio\\DIO.Series\\DIO.Series.csproj",
       "projectName": "DIO.Series",
-      "projectPath": "D:\\workspace\\DesafioDio\\DIO.Series\\DIO.Series.csproj",
+      "projectPath": "D:\\workspace\\DesafioDio\\DesafioDio\\DIO.Series\\DIO.Series.csproj",
       "packagesPath": "C:\\Users\\Gustavo Cecato\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\DesafioDio\\DIO.Series\\obj\\",
+      "outputPath": "D:\\workspace\\DesafioDio\\DesafioDio\\DIO.Series\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Gustavo Cecato\\AppData\\Roaming\\NuGet\\NuGet.Config"

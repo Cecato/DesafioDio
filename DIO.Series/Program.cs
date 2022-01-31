@@ -56,7 +56,7 @@ namespace DIO.Series
 			Console.Write("Digite o id do livro: ");
 			int indiceSerie = int.Parse(Console.ReadLine());
 
-			var serie = repositorio.RetornaPorId(indiceSerie);
+			var serie = repositorio.ReturnById(indiceSerie);
 
 			Console.WriteLine(serie);
 		}
@@ -88,11 +88,11 @@ namespace DIO.Series
 										year: entradaYear,
 										description: entradaDescription);
 
-			repositorio.Atualiza(indiceSerie, atualizaSerie);
+			repositorio.Update(indiceSerie, atualizaSerie);
 		}
         private static void ListarSeries()
 		{
-			Console.WriteLine("Listar livros");
+			Console.WriteLine("Listar Livros");
 
 			var lista = repositorio.Lista();
 
@@ -143,14 +143,14 @@ namespace DIO.Series
         private static string ObterOpcaoUsuario()
 		{
 			Console.WriteLine();
-			Console.WriteLine("Livraria DIO a seu dispor!!!");
-			Console.WriteLine("Informe a opção desejada:");
+			Console.WriteLine("Livraria DIO, seja-bem vindo(a).");
+			Console.WriteLine("Informe a opção desejada:\n");
 
 			Console.WriteLine("1- Listar Livros");
-			Console.WriteLine("2- Inserir nova Livros");
-			Console.WriteLine("3- Atualizar Livros");
-			Console.WriteLine("4- Excluir Livros");
-			Console.WriteLine("5- Visualizar Livros");
+			Console.WriteLine("2- Inserir novo Livro");
+			Console.WriteLine("3- Atualizar Livro");
+			Console.WriteLine("4- Excluir Livro");
+			Console.WriteLine("5- Visualizar Livro");
 			Console.WriteLine("C- Limpar Tela");
 			Console.WriteLine("X- Sair");
 			Console.WriteLine();

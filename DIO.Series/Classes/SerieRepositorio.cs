@@ -6,35 +6,35 @@ namespace DIO.Series
 {
 	public class SerieRepositorio : IRepositorio<Serie>
 	{
-        private List<Serie> listaSerie = new List<Serie>();
-		public void Atualiza(int id, Serie objeto)
+        private List<Serie> listBook = new List<Serie>();
+		public void Update(int id, Serie bookObject)
 		{
-			listaSerie[id] = objeto;
+			listBook[id] = bookObject;
 		}
 
 		public void Del(int id)
 		{
-			listaSerie[id].Delete();
+			listBook[id].Delete();
 		}
 
-		public void Insere(Serie objeto)
+		public void Insere(Serie bookObject)
 		{
-			listaSerie.Add(objeto);
+			listBook.Add(bookObject);
 		}
 
 		public List<Serie> Lista()
 		{
-			return listaSerie;
+			return listBook;
 		}
 
 		public int ProximoId()
 		{
-			return listaSerie.Count;
+			return listBook.Count;
 		}
 
-		public Serie RetornaPorId(int id)
+		public Serie ReturnById(int id)
 		{
-			return listaSerie[id];
+			return listBook[id];
 		}
 	}
 }

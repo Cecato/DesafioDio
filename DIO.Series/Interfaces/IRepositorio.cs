@@ -5,10 +5,10 @@ namespace DIO.Series.Interfaces
     public interface IRepositorio<T>
     {
         List<T> Lista();
-        T RetornaPorId(int id);        
+        T ReturnById(int id);        
         void Insere(T entidade);        
         void Del(int id);        
-        void Atualiza(int id, T entidade);
+        void Update(int id, T entidade);
         int ProximoId();
     }
 }

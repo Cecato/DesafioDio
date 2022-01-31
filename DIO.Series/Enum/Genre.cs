@@ -4,15 +4,15 @@ namespace DIO.Series
 	{
 		Romances = 1,
 		Contos = 2,
-		Lendas = 3,
-		Artigos = 4,
-		Manifestos = 5,
-		Teses = 6,
-		Guias = 7,
-		Mangas = 8,
-		Acao = 9,
+		Mangá = 3,
+		Ação = 4,
+		DotNet = 5,
+		Gibis = 6,
+		Fantasia = 7,
+		Suspense = 8,
+		Matemática = 9,
 		Aventura = 10,
-		Gibis = 11
+		CSharp = 11
 
 	}
 }

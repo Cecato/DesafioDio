@@ -6,9 +6,9 @@ namespace DIO.Series.Interfaces
     {
         List<T> Lista();
         T ReturnById(int id);        
-        void Insere(T entidade);        
+        void Insert(T entidade);        
         void Del(int id);        
         void Update(int id, T entidade);
-        int ProximoId();
+        int NextId();
     }
 }

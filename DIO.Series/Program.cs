@@ -4,29 +4,29 @@ namespace DIO.Series
 {
     class Program
     {
-        static SerieRepositorio repositorio = new SerieRepositorio();
+        static SerieRepositorio repository = new SerieRepositorio();
         static void Main(string[] args)
         {
-            string opcaoUsuario = ObterOpcaoUsuario();
+            string userOption = GetUserOption();
 
-			while (opcaoUsuario.ToUpper() != "X")
+			while (userOption.ToUpper() != "X")
 			{
-				switch (opcaoUsuario)
+				switch (userOption)
 				{
 					case "1":
-						ListarSeries();
+						BookList();
 						break;
 					case "2":
-						InserirSerie();
+						BookInsert();
 						break;
 					case "3":
-						AtualizarSerie();
+						BookUpdate();
 						break;
 					case "4":
-						ExcluirSerie();
+						BookDelete();
 						break;
 					case "5":
-						VisualizarSerie();
+						BookView();
 						break;
 					case "C":
 						Console.Clear();
@@ -36,82 +36,82 @@ namespace DIO.Series
 						throw new ArgumentOutOfRangeException();
 				}
 
-				opcaoUsuario = ObterOpcaoUsuario();
+				userOption = GetUserOption();
 			}
 
 			Console.WriteLine("Obrigado(a) por utilizar nossos serviços.");
 			Console.ReadLine();
         }
 
-        private static void ExcluirSerie()
+        private static void BookDelete()
 		{
 			Console.Write("Digite o id do livro: ");
-			int indiceSerie = int.Parse(Console.ReadLine());
+			int bookIndex = int.Parse(Console.ReadLine());
 
-			repositorio.Del(indiceSerie);
+			repository.Del(bookIndex);
 		}
 
-        private static void VisualizarSerie()
+        private static void BookView()
 		{
 			Console.Write("Digite o id do livro: ");
-			int indiceSerie = int.Parse(Console.ReadLine());
+			int bookIndex = int.Parse(Console.ReadLine());
 
-			var serie = repositorio.ReturnById(indiceSerie);
+			var book = repository.ReturnById(bookIndex);
 
-			Console.WriteLine(serie);
+			Console.WriteLine(book);
 		}
 
-        private static void AtualizarSerie()
+        private static void BookUpdate()
 		{
 			Console.Write("Digite o id do livro: ");
-			int indiceSerie = int.Parse(Console.ReadLine());
+			int bookIndex = int.Parse(Console.ReadLine());
 
 			foreach (int i in Enum.GetValues(typeof(Genre)))
 			{
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genre), i));
 			}
 			Console.Write("Digite o gênero entre as opções acima: ");
-			int entradaGenre = int.Parse(Console.ReadLine());
+			int inputGenre = int.Parse(Console.ReadLine());
 
 			Console.Write("Digite o Título do livro: ");
-			string entradaTitle = Console.ReadLine();
+			string inputTitle = Console.ReadLine();
 
 			Console.Write("Digite o ano de lançamento do livro: ");
-			int entradaYear = int.Parse(Console.ReadLine());
+			int inputYear = int.Parse(Console.ReadLine());
 
 			Console.Write("Digite a Descrição do livro: ");
-			string entradaDescription = Console.ReadLine();
+			string inputDescription = Console.ReadLine();
 
-			Serie atualizaSerie = new Serie(id: indiceSerie,
-										genre: (Genre)entradaGenre,
-										title: entradaTitle,
-										year: entradaYear,
-										description: entradaDescription);
+			Serie updateBook = new Serie(id: bookIndex,
+										genre: (Genre)inputGenre,
+										title: inputTitle,
+										year: inputYear,
+										description: inputDescription);
 
-			repositorio.Update(indiceSerie, atualizaSerie);
+			repository.Update(bookIndex, updateBook);
 		}
-        private static void ListarSeries()
+        private static void BookList()
 		{
 			Console.WriteLine("Listar Livros");
 
-			var lista = repositorio.Lista();
+			var list = repository.Lista();
 
-			if (lista.Count == 0)
+			if (list.Count == 0)
 			{
 				Console.WriteLine("Nenhuma série cadastrada.");
 				return;
 			}
 
-			foreach (var serie in lista)
+			foreach (var book in list)
 			{
-                var deleted = serie.returnDeleted();
+                var deleted = book.returnDeleted();
                 
-				Console.WriteLine("#ID {0}: - {1} {2}", serie.returnId(),
-				serie.returnTitle(), (deleted ? "*Excluído*" : ""));
+				Console.WriteLine("#ID {0}: - {1} {2}", book.returnId(),
+				book.returnTitle(), (deleted ? "*Excluído*" : ""));
 			}
 		}
 
-        private static void InserirSerie()
+        private static void BookInsert()
 		{
 			Console.WriteLine("Inserir novo livro");
 
@@ -120,27 +120,27 @@ namespace DIO.Series
 				Console.WriteLine("{0}-{1}", i, Enum.GetName(typeof(Genre), i));
 			}
 			Console.Write("Digite o gênero entre as opções acima: ");
-			int entradaGenre = int.Parse(Console.ReadLine());
+			int inputGenre = int.Parse(Console.ReadLine());
 
 			Console.Write("Digite o Título do livro: ");
-			string entradaTitle = Console.ReadLine();
+			string inputTitle = Console.ReadLine();
 
 			Console.Write("Digite o ano de lançamento do livro: ");
-			int entradaYear = int.Parse(Console.ReadLine());
+			int inputYear = int.Parse(Console.ReadLine());
 
 			Console.Write("Digite a Descrição da livro: ");
-			string entradaDescription = Console.ReadLine();
+			string inputDescription = Console.ReadLine();
 
-			Serie novaSerie = new Serie(id: repositorio.ProximoId(),
-										genre: (Genre)entradaGenre,
-										title: entradaTitle,
-										year: entradaYear,
-										description: entradaDescription);
+			Serie novaBook = new Serie(id: repository.NextId(),
+										genre: (Genre)inputGenre,
+										title: inputTitle,
+										year: inputYear,
+										description: inputDescription);
 
-			repositorio.Insere(novaSerie);
+			repository.Insert(novaBook);
 		}
 
-        private static string ObterOpcaoUsuario()
+        private static string GetUserOption()
 		{
 			Console.WriteLine();
 			Console.WriteLine("Livraria DIO, seja-bem vindo(a).");
@@ -155,9 +155,9 @@ namespace DIO.Series
 			Console.WriteLine("X- Sair");
 			Console.WriteLine();
 
-			string opcaoUsuario = Console.ReadLine().ToUpper();
+			string userOption = Console.ReadLine().ToUpper();
 			Console.WriteLine();
-			return opcaoUsuario;
+			return userOption;
 		}
     }
 }

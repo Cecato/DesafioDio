@@ -6,5 +6,5 @@ Desafio .Net da DIO
  - Generos de filmes para livros
 
 ## Simplificando codigo
- - Trocando para uma linguagem mais acessivel ptbr -> en
+ - Trocando para uma linguagem mais acessivel ( ptbr -> en )
 

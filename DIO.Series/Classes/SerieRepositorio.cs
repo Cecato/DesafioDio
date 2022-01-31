@@ -17,7 +17,7 @@ namespace DIO.Series
 			listBook[id].Delete();
 		}
 
-		public void Insere(Serie bookObject)
+		public void Insert(Serie bookObject)
 		{
 			listBook.Add(bookObject);
 		}
@@ -27,7 +27,7 @@ namespace DIO.Series
 			return listBook;
 		}
 
-		public int ProximoId()
+		public int NextId()
 		{
 			return listBook.Count;
 		}
